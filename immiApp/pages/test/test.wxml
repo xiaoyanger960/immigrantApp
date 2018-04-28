@@ -1,0 +1,26 @@
+<!--pages/information/informatioan.wxml-->
+<view class="container" wx:if="{{!Filled}}">
+  <form bindsubmit="formSubmit" bindreset="formReset">  
+      <input type="text" name="user_name" placeholder="Please input your name" class="input" value="{{userInfo.user_name}}" />
+      <input type="text" name="mobile" placeholder="Please input your mobile phone" value="{{userInfo.mobile}}" class="input" />
+      <input type="text" name="email" placeholder="Please input your email" value="{{userInfo.email}}"  class="input" />
+      <input type="text" name="university" placeholder="Please input your university" value="{{userInfo.university}}" class="input" />
+      <input type="text" name="subject" placeholder="Please input your subject" value="{{userInfo.subject}}" class="input" />
+      <input type="text" name="degree" placeholder="Please input your academic degree" value="{{userInfo.degree}}" class="input" /> 
+    <view class="btn-area">
+      <button formType="submit">SUBMIT</button>
+    </view>
+  </form>
+</view>
+<!-- 当用户填写了信息以后显示的信息-->
+<view class="container" wx:else>
+      <view class="show" > user name：{{userInfo.user_name}}</view>
+      <view class="show" > mobile：{{userInfo.mobile}}</view>
+      <view class="show" > email：{{userInfo.email}}</view>
+      <view class="show" > university：{{userInfo.university}}</view>
+      <view class="show" > subject：{{userInfo.subject}}</view>
+      <view class="show" > degree：{{userInfo.degree}}</view>    
+      <view class="btn-area">
+        <button bindtap='modify'>MODIFY</button>
+     </view>
+</view>

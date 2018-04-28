@@ -1,0 +1,52 @@
+<!--pages/user/user.wxml-->
+<view class="page">
+    <view class="userinfo">
+			<image class="userinfo-avatar fl_l" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+			<text class="fl_l">{{userInfo.nickName}}</text>
+    </view>
+    <!--订单详情-->
+    <view class="sc df tc bte ">
+      <navigator class="df_1" url="../user/dingdan?currentTab=0&otype=pay" hover-class="none" >
+        <view>
+            <image src="/images/dfk.png"></image> 
+        </view>
+        <text class="font_12">unpaid</text>
+      </navigator>
+
+      <navigator class="df_1"  url="../user/dingdan?currentTab=1&otype=unserved" hover-class="none" >
+      <view><image src="/images/dfh.png"></image></view>
+        <text class="font_12">unserved</text>      
+      </navigator> 
+
+      <navigator class="df_1" url="../user/dingdan?currentTab=2&otype=finish" hover-class="none" >
+          <view><image src="/images/dsh.png"></image></view>
+          <text  class="font_12">finished</text>
+      </navigator> 
+
+      <navigator class="df_1" url="../user/dingdan?currentTab=3" hover-class="none" >
+          <view><image src="/images/tksh.png"></image></view>
+          <text class="font_12">cancel</text>
+      </navigator>
+
+    </view>
+    
+    <!--灰色线-->
+    <view class="line"></view>
+    <view class="qbdd mt10">
+      <navigator url="../perInfo/perInfo">
+          <span class="font_14 c3">personal information</span>
+          <span class="fl_r c9 font_12 l_h20" hover-class="none"> ></span>
+      </navigator>
+    </view>
+
+    <view class="qbdd mt10">
+      <navigator url="../aboutus/aboutus">
+          <span class="font_14 c3">about us</span>
+          <span class="fl_r c9 font_12 l_h20" hover-class="none"> ></span>
+      </navigator>
+    </view>
+
+
+</view>
+
+

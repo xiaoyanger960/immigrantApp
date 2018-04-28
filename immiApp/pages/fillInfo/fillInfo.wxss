@@ -1,0 +1,37 @@
+page {
+  background: #fff;
+}
+
+.container {
+  font-size: 12px;
+  background-color: white;
+  padding:30rpx 0 0 0;
+}
+
+.section {
+  height: 165rpx;
+  border-bottom: 1px lightgrey solid;
+  display: flex;
+  align-items: center;
+  margin: 0 30rpx;
+  font-size:30rpx;
+  width:300px;
+}
+
+.btn-area {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 90%;
+  margin-top: 30rpx;
+  color: #fff;
+  background-color: #13325e;
+}
+.ww{
+  width: 250px;
+}
+input{
+  width:100%;
+}

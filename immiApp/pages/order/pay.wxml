@@ -1,0 +1,62 @@
+<!--pay.wxml-->
+<view class="w100 page">
+  <!--订单信息-->
+  <view class="top">
+      <view class="orderLogo">
+         <view class="orderborder">
+                  <image src="../../images/order2.png"></image>
+         </view>
+      </view>
+      <view class=" df item">
+       <view class="font_16 mt5 ovh1 c6" >
+          username:{{userInfo.userName}}
+       </view>
+       <view class="font_16 mt5 ovh1 c6">
+          mobile:{{userInfo.mobile}}
+       </view>
+       <view class="font_16 mt5 ovh1 c6">
+          Immigration type:{{evalateInfo.immType}}
+       </view>
+     </view> 
+  
+  </view>
+
+
+<!--总共支付金额-->
+<view class="zhifu mt10 tc">应共支付：<span class="font_20 red">¥ {{total}}</span>
+</view>
+
+<view class="p_all mt10">
+  <view class="btnGreen">
+    <button class="wx_pay_submit"  formType="submit" bindtap="placeOrder" >PLACE ORDER</button>
+  </view>
+</view>
+</view>
+
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-header">
+    <icon type='cancel' size="20" color="#b1b1b1" bindtap='onCancel'></icon>
+    <view class="pay-text">支付</view>
+    <view class="usePass">使用密码</view>  
+  </view>
+  <view class="modal-content">
+       <view class="shop">DIYimmigrant</view>
+       <view class="modal-price"><text class="yuan">￥</text>{{total}}</view>
+  </view>
+  <view class="bankContent">
+    <view class="bankBorder">
+          <view>
+            <image src="../../images/bank.jpg" class="bankImg"></image>
+           </view>
+           <view>招商银行储蓄卡（2234）</view>
+          <view>
+          <image src="../../images/x_right.png" class="right"></image>
+           </view>    
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确认支付</view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+/* pages/result/result.wxss */
+.container{
+  padding:50rpx;
+  text-align: center;
+  font-size:32rpx;
+  color:#666;
+}
+.icon{
+  margin-bottom: 20rpx;
+}
+.result{
+  color:#000;
+    font-size:36rpx;
+    font-weight: bold;
+    line-height: 42rpx;
+    margin-bottom: 40rpx;
+}
+button {
+  width: 90%;
+  color: #fff;
+  height:100rpx;
+  line-height: 100rpx;
+  background-color: #13325e;
+}
+.btn-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 200rpx;
+}

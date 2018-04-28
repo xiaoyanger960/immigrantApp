@@ -1,0 +1,151 @@
+/**index.wxss**/
+/*容器*/
+.container {
+  font-family: '微软雅黑';
+  background-color: #fff;
+  position: relative;
+}
+
+/*轮播图*/
+swiper{
+  width:100%;
+  height:200px;
+  margin-top: -199rpx;
+}
+.slide-image {
+  width: 100%;
+  height: 200px;
+}
+
+/* 搜索框  */
+.search{
+    padding: 3% 3% 2% 3%;
+    background: #13325e;
+    opacity: 0.6;
+    position: absolute;
+    top:0;
+    width:94%;
+}
+.search input{
+    width: 60%;
+    border-radius: 13px;
+    background: #fff;
+    border: none;
+    font-size: 12px;
+    padding:1% 2.5%;
+    margin-right: 5px;
+    }
+.search button{
+    line-height:30px;
+    background: none;
+    text-align: center;
+    border: none;
+    padding: 3px;
+}
+.search button::after{
+    content: none;
+}
+.searchcion{
+    width: 24px;
+    height: 24px;
+    text-align: center
+}
+.cont{
+     width: 94%;
+     padding: 3%;     
+}
+.w100{ 
+    width: 100%;
+    padding-bottom: 10px;
+}
+.w100 button{
+    text-align: center;
+    line-height: 20px;
+    margin: 3% 2% 0 0;
+    display: inline-table;
+    padding:5px 10px;
+    font-size: 12px;
+}
+.shop{
+    width: 49%;
+    background: #fff;
+    float: left;
+    margin-bottom: 4%;
+}
+.shop:nth-child(even){
+    margin-right: 2%;
+}
+.sh_slt{
+    width: 100%;
+    height: 370rpx;
+    overflow: hidden;
+}
+.sp_text{
+    float: left;
+    line-height: 25px;
+    width: 92%;
+    padding: 4%;
+    }
+.sp_tit{
+    width: 100%;
+    overflow: hidden;
+    font-size: 14px;
+}
+.sp_jg{
+    width: 100%;
+    overflow: hidden;
+    font-size: 14px;
+    color: #fc0628;
+    line-height: 30px;
+}
+
+/* 学校推荐列表 */
+.recommendSchool{
+  width:100%;
+  display: flex;
+  flex-wrap:wrap;
+  font-size:24rpx;
+
+
+}
+ .rsnav{
+    float: left;
+    border-right:1px solid #eee;
+    border-bottom:1px solid #eee;
+    width:249rpx;
+    height:200rpx;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    padding-top: 4%;
+ }
+  .rsnav image{
+     width:40px;
+     height:40px;
+     margin-top: 5px;
+     margin-bottom: 4px;
+  }
+.schoolranking{
+  width:100%;  
+
+}
+.line{
+  width:100%;
+  height:15rpx;
+  background: #eee;
+}
+.rankname{
+  border-left:4px solid #13325e;
+  padding-left:10rpx;
+  font-size: 20px;
+  line-height: 30px;
+}
+.qbdd1{
+  background: #fff;
+  width: 92%;
+  font-size: 14px;
+  color: #666;
+  padding:4%;
+  border-bottom: 1px solid #eee
+}

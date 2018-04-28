@@ -1,0 +1,39 @@
+<!--pages/user/dingdan.wxml-->
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" data-otype="pay" bindtap="swichNav">unpaid</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" data-otype="unserved" bindtap="swichNav">unserved</view> 
+  <view class="swiper-tab-list {{currentTab==2? 'on' : ''}}" data-current="2" data-otype="finish" bindtap="swichNav">finished</view>
+  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3"  data-otype="finish" bindtap="swichNav">cancel</view>
+</view>
+<view class="c_t60"></view>
+
+
+<view current="{{currentTab}}" class="swiper-box">
+  <view> 
+    <view class="search_no" wx:if="{{!orderList}}">
+        <view class="font_14"><image class="scimg" src="/images/search_no.png"></image></view>
+        <text>There is no available order/(ㄒoㄒ)/~~</text>
+    </view>
+
+    <view class=" df" wx:for="{{orderList}}">     
+     <view class="top">
+      <view class="orderLogo">
+         <view class="orderborder">
+                  <image src="../../images/order2.png"></image>
+         </view>
+      </view>
+      <view class=" df item">
+       <view class="font_16 mt5 ovh1 c6" >
+           Immigration type:{{item.immType}}
+       </view>
+       <view class="font_16 mt5 ovh1 c6">
+          Order Time:{{item.order_time}}
+       </view>
+       <view class="font_16 mt5 ovh1 c6">
+          User Name:{{item.user_info.user_name}}      
+       </view>
+     </view>   
+  </view>  
+    </view>
+  </view>
+</view>

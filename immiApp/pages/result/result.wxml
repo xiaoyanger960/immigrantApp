@@ -1,0 +1,16 @@
+<!--pages/result/result.wxml-->
+<view class="container">
+    <icon type="{{iconType}}" size="60" color="{{color}}" class="icon"/>
+    <view class="result">Evaluate Result</view>
+
+    <view wx:if="{{fit}}">According to your test results, your conditions are in conformity with the requirements of the immigration.You can fill in the personal information and submit the order</view>
+    <view wx:else >According to your test results, your conditions can not meet the requirements of the immigration of the United States! Your  {{reason}} is not enough!</view>
+  
+    <view class="btn-area" wx:if="{{fit}}">
+      <button bindtap="bindFillInfo">NEXT</button>
+    </view>
+
+    <view class="btn-area" wx:else>
+      <button bindtap='bindreturn'>RETURN</button>
+    </view>
+</view>

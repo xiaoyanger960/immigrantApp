@@ -1,0 +1,41 @@
+<!--pages/aboutus/aboutus.wxml-->
+<view calss="container">
+  <image class="aboutusImg" src="../../images/aboutus.jpg" mode="scaleToFill"></image>
+  <view class="conntent-view">
+    <view class="content">
+        <!--我们主要针对于美国杰出人才的移民申请，小程序中我们对您的情况进行初步评估，若您符合条件我们会私下联系您，帮您递交申        请材料，您只需要等待结果。
+       我们主要针对于美国杰出人才的移民申请，小程序中我们对您的情况进行初步评估，若您符合条件我们会私下联系您，帮您递交申请材         料，您只需要等待结果。-->
+       <view class="header">About DIYimigrant</view>
+         <text class="text" decode="{{true}}"> &nbsp; We mainly focus on immigration applications for outstanding American talents. We will make a preliminary assessment of your situation in small programs. \n &nbsp;  If you meet the requirements, we will contact you privately to help you submit the application materials, you only need to wait for the results.</text>   
+    </view>
+  </view>
+  <view class="line"></view>
+
+
+     <view class="qbdd mt10">
+      <view>
+          <span class="font_14 c3" style="position:relative;">
+            <image src="../../images/addr.png" class="addr"></image>
+            hangzhoudianzi University
+           </span>
+      </view>
+    </view>
+       <view class="qbdd mt10">
+      <view>
+          <span class="font_14 c3" style="position:relative;" >
+              <image src="../../images/phone.png" class="addr"></image>
+              010-12345678
+          </span>
+      </view>
+    </view>
+       <view class="qbdd mt10">
+      <view>
+          <span class="font_14 c3" style="position:relative;">
+          <image src="../../images/email.png" class="addr"></image>
+           dp@zju.edu.cn
+          </span>
+      </view>
+    </view>
+<map id="map" longitude="120.345" latitude="30.31222" scale="16" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location  class="map"></map>
+<view class='footer'>-COPYRIGHT ©2018数字媒体与艺术设计学院-</view>
+</view>

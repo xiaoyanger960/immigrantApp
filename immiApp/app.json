@@ -1,0 +1,57 @@
+{
+  "pages":[ 
+    "pages/user/user",
+    "pages/order/pay",
+    "pages/result/result",
+    "pages/evaluate/evaluate",
+   
+    
+    "pages/test/test",
+   
+    
+    "pages/perInfo/perInfo",
+    "pages/index/index",      
+            
+    "pages/aboutus/aboutus",        
+   
+    "pages/school/school",       
+            
+    "pages/fillInfo/fillInfo",
+   
+          
+    "pages/information/informatioan",          
+    "pages/search/search",  
+    "pages/user/dingdan",    
+    "pages/dingdan/dingdan"            
+      ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#13325e",
+    "navigationBarTitleText": "DIYimigrant",
+    "navigationBarTextStyle":"white"
+  },
+   "tabBar": {
+    "color": "#858585",
+    "selectedColor": "#13325e",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath":"images/icons/btn-tabs_01.png",
+      "selectedIconPath":"images/icons/btn-tabs_07.png",
+      "text": "index"
+    }, 
+        {
+      "pagePath": "pages/evaluate/evaluate",
+      "iconPath":"images/icons/btn-tabs_03.png",
+      "selectedIconPath":"images/icons/btn-tabs_08.png",
+      "text": "evaluate"
+    },
+    {
+      "pagePath": "pages/user/user",
+      "iconPath":"images/icons/btn-tabs_06.png",
+      "selectedIconPath":"images/icons/btn-tabs_10.png",
+      "text": "my"
+    }]
+  }
+}

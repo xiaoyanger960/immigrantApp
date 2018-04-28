@@ -1,0 +1,37 @@
+<!--pages/information/informatioan.wxml-->
+<view class="container">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <!--用户姓名-->
+    <view class="section">
+      <input type="text" name="userName" placeholder="Please input your name" class="input" />
+    </view>
+    <!--用户手机号-->
+    <view class="section">
+      <input type="text" name="mobile" placeholder="Please input your mobile phone"  class="input" />
+    </view>
+
+    <!--邮箱-->
+    <view class="section">
+      <input type="text" name="email" placeholder="Please input your email"  class="input" />
+    </view>
+
+    <!--大学-->
+    <view class="section">
+      <input type="text" name="university" placeholder="Please input your university"  class="input" />
+    </view>
+
+   <!--专业-->
+    <view class="section">
+      <input type="text" name="subject" placeholder="Please input your subject"  class="input" />
+    </view>
+
+    <!--学位-->
+    <view class="section">
+      <input type="text" name="degree" placeholder="Please input your academic degree"  class="input" />
+    </view>
+    
+    <view class="btn-area">
+      <button formType="submit">NEXT</button>
+    </view>
+  </form>
+</view>
