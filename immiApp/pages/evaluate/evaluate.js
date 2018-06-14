@@ -58,7 +58,7 @@ Page({
     }else{
       app.globalData.evalateInfo = evalateInfo;
       wx.showToast({
-        title: "正在评估!",
+        title: "evaluating",
         duration: 2000,
         icon:"loading"
       });

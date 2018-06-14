@@ -1,16 +1,21 @@
 {
   "pages":[ 
+    "pages/index/index",
     "pages/user/user",
+   
+      "pages/evaluate/evaluate",
+   
+ 
     "pages/order/pay",
     "pages/result/result",
-    "pages/evaluate/evaluate",
+
    
     
     "pages/test/test",
    
     
     "pages/perInfo/perInfo",
-    "pages/index/index",      
+          
             
     "pages/aboutus/aboutus",        
    

@@ -7,7 +7,7 @@
     </view>
     <!--用户手机号-->
     <view class="section">
-      <input type="text" name="mobile" placeholder="Please input your mobile phone" value="{{userInfo.mobile}}" class="input" />
+      <input type="text" name="mobile" placeholder="Please input your mobile phone" value="{{userInfo.mobile_phone}}" class="input" />
     </view>
 
     <!--邮箱-->
@@ -27,7 +27,7 @@
 
     <!--学位-->
     <view class="section">
-      <input type="text" name="degree" placeholder="Please input your academic degree" value="{{userInfo.degree}}" class="input" />
+      <input type="text" name="degree" placeholder="Please input your academic degree" value="{{userInfo.academic_degree}}" class="input" />
     </view>    
     <view class="btn-area">
       <button formType="submit">SUBMIT</button>
@@ -43,7 +43,7 @@
     </view>
     <!--用户手机号-->
     <view class="section">
-     <view class="show" > mobile：{{userInfo.mobile}}</view>
+     <view class="show" > mobile：{{userInfo.mobile_phone}}</view>
     </view>
 
     <!--邮箱-->
@@ -63,7 +63,7 @@
 
     <!--学位-->
     <view class="section">
-      <view class="show" > degree：{{userInfo.degree}}</view>
+      <view class="show" > degree：{{userInfo.academic_degree}}</view>
     </view>
     
     <view class="btn-area">

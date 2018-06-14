@@ -1,30 +1,43 @@
 // pages/school/school.js
+const config = require("../../config.js")
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    uni_info:{},
+    hostUrl: 'http://localhost:8088/immigrantApi/upload/',
   
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    var that=this;
+    var university_id=options.schoolId;
+    console.log(university_id);
+    wx.request({
+      url: config.UNIVER_INFO,
+      method: 'post',
+      data: {
+        university_id:university_id,
+      },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        var universityInfo = res.data.data;
+        universityInfo.photo_path = universityInfo.photo_path.replace(/\\/ig, '/');
+        that.setData({
+          uni_info: universityInfo
+        })
+
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000
+        });
+        }
+    })
+
+
   
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
   
   },

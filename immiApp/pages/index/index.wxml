@@ -1,46 +1,47 @@
 <view class="container">
     <!--首页轮播-->
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <!---imgUrls是轮播图的对象数组 对象中应该有url 和 跳转学校的id 点击跳转到school页面 -->
       <block wx:for="{{schoolData}}" wx:key="id">
         <swiper-item>
-              <navigator url="../school/school?schoolId={{item.university_id}}">
-                <image src="{{item.image}}" class="slide-image" width="100%" height="300"  />
-                <!--src="{{hostImg}}{{item.filename}}"-->
+              <navigator url="../school/school?schoolId={{item.id}}">
+                <image src="{{hostUrl+item.photo_path}}" class="slide-image" width="100%" height="300"  />
               </navigator>
+              <!--<image src="{{item}}"></image>-->
         </swiper-item>
       </block>
     </swiper>
 
     <!--搜索跳转-->
-    <view class="search df">
+    <!--<view class="search df">
     <input class="df_1" placeholder="you want to search..." focus="{{focus}}" value="{{searchValue}}" bindtap="searchRedirect"/>
     <button bindtap="searchRedirect"><image class="searchcion" src="/images/search.png"></image></button>
    </view>
-    <view class="line"></view>
+    <view class="line"></view>-->
 
    <!--学校推荐列表-->  
+   <view class="line"></view>
    <view class="recommendSchool">
-      <navigator class="pr rsnav" url="../school/school?schoolId={{item.university_id}}" hover-class="changestyle"
+      <navigator class="pr rsnav" url="../school/school?schoolId={{item.id}}" hover-class="change"
                  wx:for="{{schoolData}}" wx:key="recommendSchool_id">
-        <image class="photo" src="{{item.badge}}" width="50" height="50" ></image>
+        <image class="photo" src="{{hostUrl+item.badge_path}}" width="50" height="50" ></image>
         <view class="schoolname">{{item.university_name}}</view>
       </navigator>
     </view>
     <!--学校排名-->
     <view class="schoolranking">
       <view class="line"></view>
-      <view class="rankname">
-        <text>schoolrank</text>
-      </view>
-      <navigator class="mt10"   wx:for="{{schoolData}}" wx:key="recommendSchool_id" url="../school/school?schoolId={{item.university_id}}" >
+      <view class="rankname">schoolrank</view>
+      <navigator class="mt10"  hover-class='change' wx:for="{{schoolData}}" wx:key="recommendSchool_id" url="../school/school?schoolId={{item.id}}" >
         <view class="qbdd1">
             <span class="font_14 c3">{{item.university_name}}</span>
-            <span class="font_14 c3">{{item.rank}}</span>
+            <!--<span class="font_14 c3">{{item.rank}}</span>-->
             <span class="fl_r c9 font_12 l_h20" hover-class="none"> ></span>
         </view>      
       </navigator>    
     
     </view>
-    <!--<image src=" http://localhost:8088/yiminshop//Public/upload/1516077989.png"></image>-->
+    <!--<image src="http://localhost:8088/immigrantApi/config/../upload/badge/e76db8fba3feaa0b529b7ed740ac2a6f.jpg"></image>
+    <image src="F:\jpg-file\me.jpg"></image>
+    <view>{{schoolData[0].university_name}}</view>
+    <image src="{{schoolData[5].badge_path}}"></image>-->
   </view>

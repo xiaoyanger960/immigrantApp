@@ -20,6 +20,7 @@
   margin-top: 50rpx;
   border-radius: 50%;
   border:2px solid #fff;
+  overflow: hidden;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
 }
 

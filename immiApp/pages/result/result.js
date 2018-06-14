@@ -16,11 +16,15 @@ Page({
     fit:false,
     color:"red",
     hadFillInfo:false,
+    open_id:app.d.open_id,
   },
   onLoad: function (options) {
+    var that=this;
     var evalateInfo = app.globalData.evalateInfo;
+    var open_id = wx.getStorageSync('open_id');
     this.setData({
       evalateInfo: evalateInfo,
+      open_id:open_id
     })
     console.log(evalateInfo);
     if (evalateInfo.immType=="EB1A"){
@@ -119,27 +123,11 @@ Page({
         })
       }
     }
-    common.shopCall("POST", config.GET_USERINFO,{token:app.d.token},(data)=>{
-      data={
-        "user_info": {
-          "open_id": "olx8H0UHfk3RrzTe4ofZBWzl8J-0",
-            "nick_name": "小样儿960",
-              "user_name": "刘小倪",
-                "avatar_url": "https://wx.qlogo.cn/mmopen/vi_32/wUMSLGCic1FOhTM5yV1Nw3S7txib7v0Fp0TPogtegNUeqvKS9t0OFxRiaqo27KgxtwReJmicUkeHl3FX2fxVVuZwmA/0",
-                  "gender": 2,
-                    "city": "Hangzhou",
-                      "province": "Zhejiang",
-                        "country": "China",
-                          "language": "zh_CN",
-                            "status": "NORMAL",
-                              "mobile": "13588235393",
-                                "email": "xiaoni960@163.com",
-                                  "university": "杭州电子科技大学",
-                                    "subject": "数字媒体技术",
-                                      "degree": "本科",
-            }
-      }
-      if(user_info.email!==""){
+    common.shopCall("POST", config.GET_USERINFO,{open_id:that.data.open_id},(data)=>{
+      console.log(data);
+      var user_info=data;
+      app.globalData.userInfo = user_info;
+      if(user_info!==""){
         that.setData({
           hadFillInfo:true
         })
@@ -147,6 +135,9 @@ Page({
     },(error)=>{
       console.log(error)
     })
+  },
+  onShow:function(){
+
   },
   bindreturn:function(){
     wx.navigateBack();

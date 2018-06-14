@@ -1,29 +1,29 @@
 <!--pages/user/user.wxml-->
 <view class="page">
     <view class="userinfo">
-			<image class="userinfo-avatar fl_l" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-			<text class="fl_l">{{userInfo.nickName}}</text>
+      <open-data class="userinfo-avatar fl_l" type="userAvatarUrl"></open-data>
+      <open-data type="userNickName" class="fl_l"></open-data>
     </view>
     <!--订单详情-->
     <view class="sc df tc bte ">
-      <navigator class="df_1" url="../user/dingdan?currentTab=0&otype=pay" hover-class="none" >
+      <navigator class="df_1" url="../user/dingdan?currentTab=0&otype=INIT" hover-class="none" >
         <view>
             <image src="/images/dfk.png"></image> 
         </view>
         <text class="font_12">unpaid</text>
       </navigator>
 
-      <navigator class="df_1"  url="../user/dingdan?currentTab=1&otype=unserved" hover-class="none" >
+      <navigator class="df_1"  url="../user/dingdan?currentTab=1&otype=PAID" hover-class="none" >
       <view><image src="/images/dfh.png"></image></view>
         <text class="font_12">unserved</text>      
       </navigator> 
 
-      <navigator class="df_1" url="../user/dingdan?currentTab=2&otype=finish" hover-class="none" >
+      <navigator class="df_1" url="../user/dingdan?currentTab=2&otype=SERVICED" hover-class="none" >
           <view><image src="/images/dsh.png"></image></view>
           <text  class="font_12">finished</text>
       </navigator> 
 
-      <navigator class="df_1" url="../user/dingdan?currentTab=3" hover-class="none" >
+      <navigator class="df_1" url="../user/dingdan?currentTab=2&otype=CANCELLED" hover-class="none" >
           <view><image src="/images/tksh.png"></image></view>
           <text class="font_12">cancel</text>
       </navigator>

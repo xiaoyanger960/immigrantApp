@@ -9,13 +9,13 @@
       </view>
       <view class=" df item">
        <view class="font_16 mt5 ovh1 c6" >
-          username:{{userInfo.userName}}
+          username:{{userInfo.user_name}}
        </view>
        <view class="font_16 mt5 ovh1 c6">
-          mobile:{{userInfo.mobile}}
+          mobile:{{userInfo.mobile_phone}}
        </view>
        <view class="font_16 mt5 ovh1 c6">
-          Immigration type:{{evalateInfo.immType}}
+          Immigration type:{{evalateInfo.ImmType}}
        </view>
      </view> 
   

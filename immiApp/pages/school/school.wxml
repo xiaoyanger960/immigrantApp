@@ -1,16 +1,46 @@
 <!--pages/school/school.wxml-->
 <view class="school">
   <view class="image">
-   <image  src="../../images/school/feicheng01.jpg" mode="aspectFill"></image>
+   <image  src="{{hostUrl+uni_info.photo_path}}" mode="aspectFill"></image>
+  </view>
+  <view class="cutLine">
+   <image  src="../../images/school/cutLine.png"></image>
   </view>
 
-  <view class="intro">
-      <view class="schoolName">College of Philadelphia</view>
-      <view class="rank">rank:12</view>
-      <view class="address">address:Philadelphia, Pennsylvania, USA</view>
-      <view class="content">  Philadelphia University is located in Philadelphia, Pennsylvania, USA. In 1884, the Philadelphia Philology School, the predecessor of the University of Philadelphia, was established. In 1941, the school was renamed Philadelphia College of Textiles and the school was allowed to grant a bachelor's degree.
-    In 1949, began in the East Autumn Festival in Philadelphia school site teaching. In 1961, the school was renamed again to Philadelphia Textile Technology Institute. Later colleges submitted their applications to the Pennsylvania federal government as a comprehensive Philadelphia University with approval.
-    The school has a total of more than 3,500 students from 38 U.S. states and more than 30 countries worldwide. The school has more than 30 majors, more than 50 graduate and undergraduate subjects and offers students a Bachelor of Science, Bachelor of Arts, Landscape Architecture, and Master's and Ph.D. degrees in Textile Engineering and Science. Today, the University of Philadelphia alumni are global leaders in design, architecture, fashion, commerce, engineering, health, textiles, materials and sustainability. Unlike the three colonial colleges (Harvard, Yale, William and Mary) that had the old-fashioned British curriculum and designed to train priests, the school not only started with a science course but also the first with history, mathematics, Agronomy, English and modern language courses.</view>  
+  <!--<view class="intro">
+      <view class="schoolName">{{uni_info.university_name}}</view>
+      <view class="rank">rank:{{uni_info.rank}}</view>
+      <view class="address">address:{{uni_info.address}}</view>
+      <view class="content">{{uni_info.desc}}</view>  
+  </view>-->
+<view class="container">
+  <view class="wrap">
+     <view class="header">
+      <view class="line"></view>
+      <view class="header-real">{{uni_info.university_name}}</view>     
+     </view>
+     <view class="cont desc">{{uni_info.desc}}</view>
   </view>
+
+  <view class="wrap">
+     <view class="header">
+      <view class="line"></view>
+      <view class="header-real">Address</view>     
+     </view>
+     <view class="cont">
+      <view>{{uni_info.address}}</view>
+     
+    </view>
+  </view>
+
+  <view class="wrap">
+     <view class="header">
+      <view class="line"></view>
+      <view class="header-real">Rank</view>     
+     </view>
+     <view class="cont">No.{{uni_info.rank}}
+     </view>
+  </view>
+</view>
 </view>
 

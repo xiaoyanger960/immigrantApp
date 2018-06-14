@@ -112,7 +112,7 @@ swiper{
     float: left;
     border-right:1px solid #eee;
     border-bottom:1px solid #eee;
-    width:249rpx;
+    width:373rpx;
     height:200rpx;
     overflow: hidden;
     display: flex;
@@ -137,8 +137,8 @@ swiper{
 }
 .rankname{
   border-left:4px solid #13325e;
-  padding-left:10rpx;
-  font-size: 20px;
+  padding-left:20rpx;
+  font-size: 16px;
   line-height: 30px;
 }
 .qbdd1{
@@ -148,4 +148,7 @@ swiper{
   color: #666;
   padding:4%;
   border-bottom: 1px solid #eee
+}
+.change{
+  opacity: .4;
 }

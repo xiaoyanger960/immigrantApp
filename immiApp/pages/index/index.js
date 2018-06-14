@@ -2,39 +2,15 @@ var app = getApp();
 const config = require("../../config.js")
 Page({
   data: {
-    imgUrls: [
-      '../../images/banner/schoolbanner01.jpg',
-      '../../images/banner/schoolbanner02.jpg',
-      '../../images/banner/schoolbanner03.jpg'     
-    ],
+    hostUrl:'http://localhost:8088/immigrantApi/upload/',
     hostImg:app.d.hostImg,
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
     duration: 1000,
     circular: true,
-    recommendSchoolData:[
-      'Harvard',
-      'Harvard',
-      'Harvard',
-      'Harvard',
-      'Harvard',
-      'Harvard',
-      'Harvard',
-      'Harvard',
-      'Harvard'  
-    ],
-    rankSchoolData:[
-      'Harvard',
-      'Harvard',
-      'Harvard',
-      'Harvard',
-      'Harvard',
-      'Harvard',
-      'Harvard',
-      'Harvard',
-      'Harvard'  
-    ],
+    recommendSchoolData:[],
+    rankSchoolData:[],
     schoolData:{}
   },
 
@@ -48,53 +24,23 @@ Page({
         'Content-Type':  'application/x-www-form-urlencoded'
       },
       success: function (res) {       
-        var school = res.data;
-        console.log(res);
-        console.log(typeof (res));
-        console.log(typeof (school));
-        //var bannerUrl=res.data.data.list;
-        //that.setData({
-          //imgUrls:bannerUrl
-        //});      
+        var school = res.data.data;
+        console.log(school);
+        for(var i=0;i<school.length;i++){
+          school[i].badge_path=school[i].badge_path.replace(/\\/ig, '/');
+          school[i].photo_path = school[i].photo_path.replace(/\\/ig, '/');
+        }
+        console.log('替换后',school);
+        that.setData({
+          schoolData: school
+        })
+    
       },
       fail:function(e){
-        /*wx.showToast({
+        wx.showToast({
           title: '网络异常！',
           duration: 2000
-        });*/
-        //暂时在这里写上成功的代码
-        var res = {
-          "code": "OK",
-          "data": {
-            "list": [
-              {
-                "university_id": 1,
-                "university_name": "Harvard",
-                "badge": "../../images/hafouLogo.jpg",
-                "image": "../../images/banner/schoolbanner01.jpg",
-                "rank": 1,
-                "status": "NORMAL",
-                "desc": "Philadelphia University is located in Philadelphia, Pennsylvania, USA. In 1884, the Philadelphia Philology School",
-                "address": "Philadelphia, Pennsylvania, USA"
-              },
-              {
-                "university_id": 2,
-                "university_name": "William and Mary College",
-                "badge": "../../images/hafouLogo.jpg",
-                "image": "../../images/banner/schoolbanner02.jpg",
-                "rank": 2,
-                "status": "NORMAL",
-                "desc": "Founded in 1693, the William and Mary College, also known as the William and Mary College, is the second oldest institution of higher education in the nation with a history just behind Harvard University founded in 1636",
-                "address": "Virginia, United States"
-              },
-            ]
-          }
-        }
-        console.log(res);
-        that.setData({
-          schoolData:res.data.list
-        })
-
+        });
       },
     })
   },

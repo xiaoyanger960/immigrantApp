@@ -10,71 +10,27 @@ Page({
     winHeight: 0,  
     // tab切换  
     currentTab: 0,  
-    isStatus:'pay',//10待付款，20待发货，30待收货 40、50已完成
+    isStatus:'INIT',//10待付款，20待发货，30待收货 40、50已完成
     page:0,
     refundpage:0,
-    orderList: [{
-      "order_id": 1,
-      "order_sn": "18021250445844",
-      "open_id": "olx8H0Tx0rlev97sa2bCIOQcWVKo",
-      "status": "INIT",
-      "payment": "200.00",
-      "order_time": "2018-02-05 10:31:42",
-      "pay_time": null,
-      "publication": 200,
-      "citation": 200,
-      "review": 100,
-      "immigration_type": "EB1A",
-      "user_info": {
-        "open_id": "olx8H0UHfk3RrzTe4ofZBWzl8J-0",
-        "nick_name": "小样儿960",
-        "user_name": "刘小倪",
-        "avatar_url": "https://wx.qlogo.cn/mmopen/vi_32/wUMSLGCic1FOhTM5yV1Nw3S7txib7v0Fp0TPogtegNUeqvKS9t0OFxRiaqo27KgxtwReJmicUkeHl3FX2fxVVuZwmA/0",
-        "gender": 2,
-        "city": "Hangzhou",
-        "province": "Zhejiang",
-        "country": "China",
-        "language": "zh_CN",
-        "status": "NORMAL",
-        "mobile": "13588235393",
-        "email": "xiaoni960@163.com",
-        "university": "杭州电子科技大学",
-        "subject": "数字媒体技术",
-        "degree": "本科",
-      }
-    },
-    {
-      "order_id": 2,
-      "order_sn": "18021250445844",
-      "open_id": "olx8H0Tx0rlev97sa2bCIOQcWVKo",
-      "status": "INIT",
-      "payment": "200.00",
-      "order_time": "2018-02-05 10:31:42",
-      "pay_time": null,
-      "publication": 200,
-      "citation": 200,
-      "review": 100,
-      "immigration_type": "EB1A",
-      "user_info": {
-        "open_id": "olx8H0UHfk3RrzTe4ofZBWzl8J-0",
-        "nick_name": "小样儿960",
-        "user_name": "刘小倪",
-        "avatar_url": "https://wx.qlogo.cn/mmopen/vi_32/wUMSLGCic1FOhTM5yV1Nw3S7txib7v0Fp0TPogtegNUeqvKS9t0OFxRiaqo27KgxtwReJmicUkeHl3FX2fxVVuZwmA/0",
-        "gender": 2,
-        "city": "Hangzhou",
-        "province": "Zhejiang",
-        "country": "China",
-        "language": "zh_CN",
-        "status": "NORMAL",
-        "mobile": "13588235393",
-        "email": "xiaoni960@163.com",
-        "university": "杭州电子科技大学",
-        "subject": "数字媒体技术",
-        "degree": "本科",
-      }
-    }],
+    orderList: [],
+    token:'',
+    open_id:'',
   },  
   onLoad: function(options) {  
+    var that=this;
+    var open_id = wx.getStorageSync('open_id');
+    var token = wx.getStorageSync('token');
+    if (open_id) {
+      that.setData({
+        open_id: open_id,
+      })
+    }
+    if (token) {
+      that.setData({
+        token: token,
+      })
+    }
     this.setData({
       currentTab: parseInt(options.currentTab),
       isStatus:options.otype
@@ -86,16 +42,17 @@ Page({
   loadOrderList: function(){
     var that = this;
     var params={
-      token:app.d.token,
+      open_id:that.data.open_id,
+      token:that.data.token,
+      //status:'ALL',
       status:that.data.isStatus
     }
-    common.shopCall("POST", config.GET_ORDER_LIST,params,(data)=>{
+    common.shopCall("POST", config.ORDER_LIST,params,(data)=>{
       console.log("加载订单成功");
       var orderList=data.order_list;
       that.setData({
         orderList:orderList
       })
-
     })
 
    

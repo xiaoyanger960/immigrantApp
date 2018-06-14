@@ -1,3 +1,4 @@
+const config = require("../../config.js")
 var app = getApp();
 Page({
   data:{
@@ -10,16 +11,6 @@ Page({
   onLoad:function(options){
   
   },
-
-  //下拉加载更多
-  /*onReachBottom:function(){
-      this.setData({
-        page:(this.data.page+10)
-      })
-      
-      this.searchProductData();
-  },*/
-
   doKeySearch:function(e){
     var key = e.currentTarget.dataset.key;
     this.setData({
@@ -32,6 +23,7 @@ Page({
 
   //点击搜索按钮
   doSearch:function(){
+    var that = this;
     var searchKey = this.data.searchValue;
     if (!searchKey) {
         this.setData({
@@ -40,7 +32,31 @@ Page({
         return;
     };    
     this.data.productData.length = 0;
-    this.searchProductData();
+    console.log(that.data.searchValue);
+    //这个接口好像暂时还没有
+    wx.request({
+      url: app.d.ceshiUrl + 'ProductController/search',
+      method: 'post',
+      data: {
+        keyword: that.data.searchValue
+      },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res);
+        var data = res.data.data.product_list;
+        that.setData({
+          productData: that.data.productData.concat(data),
+        });
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000
+        });
+      },
+    });
   }, 
 
   //监听搜索框的输入 e.detail.value为输入的值
@@ -51,33 +67,5 @@ Page({
     });
   },
   
-  //搜索商品信息
-  searchProductData:function(){
-    var that = this;
-    console.log(that.data.searchValue);
-    wx.request({
-      url: app.d.ceshiUrl + 'ProductController/search',
-      method:'post',
-      data: {
-        keyword:that.data.searchValue
-      },
-      header: {
-        'Content-Type':  'application/x-www-form-urlencoded'
-      },
-      success: function (res) { 
-        console.log(res);  
-        var data = res.data.data.product_list;
-        that.setData({
-          productData:that.data.productData.concat(data),
-        });
-      },
-      fail:function(e){
-        wx.showToast({
-          title: '网络异常！',
-          duration: 2000
-        });
-      },
-    });
-  },
 
 });
